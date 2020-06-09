@@ -64,6 +64,7 @@ public class Test02 {
         }).map(new MapFunction<User, Row>() {
             @Override
             public Row map(User user) throws Exception {
+                user.setAge(user.getAge()+1);
                 return Row.of(user.getName(), user.getPass(), user.getAge());
             }
         })

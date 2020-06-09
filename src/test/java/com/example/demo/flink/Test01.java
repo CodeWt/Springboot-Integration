@@ -7,6 +7,9 @@ import org.apache.flink.api.java.ExecutionEnvironment;
 import org.apache.flink.api.java.tuple.Tuple3;
 import org.junit.Test;
 
+/**
+ * https://ci.apache.org/projects/flink/flink-docs-release-1.3/
+ */
 public class Test01 {
     @Test
     public void test01() throws Exception {
@@ -18,13 +21,10 @@ public class Test01 {
                 new Tuple3<>("wtt","123",24),new Tuple3<>("wyz","456",18)
         );
         //对数据集处理
-        DataSet<Tuple3<String,String,Integer>> result = user.map(new MapFunction<Tuple3<String, String, Integer>, Tuple3<String, String, Integer>>() {
-            @Override
-            public Tuple3<String, String, Integer> map(Tuple3<String, String, Integer> tuple3) throws Exception {
-                //age+=1
-                tuple3.f2 += 1;
-                return tuple3;
-            }
+        DataSet<Tuple3<String,String,Integer>> result = user.map((MapFunction<Tuple3<String, String, Integer>, Tuple3<String, String, Integer>>) tuple3 -> {
+            //age+=1
+            tuple3.f2 += 1;
+            return tuple3;
         }).filter(new FilterFunction<Tuple3<String, String, Integer>>() {
             @Override
             public boolean filter(Tuple3<String, String, Integer> tuple3) throws Exception {
