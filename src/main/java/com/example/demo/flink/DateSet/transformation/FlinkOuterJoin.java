@@ -1,4 +1,4 @@
-package com.example.demo.flink;
+package com.example.demo.flink.DateSet.transformation;
 
 import com.example.demo.flink.entity.User;
 import org.apache.commons.lang.StringUtils;
@@ -80,7 +80,12 @@ public class FlinkOuterJoin {
                     user.setAge(first.getAge());
                     user.setGrade(second.getGrade());
                     return user;
-                }).map((MapFunction<User, Row>) value -> Row.of(value.getName(),value.getPass(),value.getAge(),value.getGrade())).returns(new RowTypeInfo(BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.INT_TYPE_INFO, BasicTypeInfo.INT_TYPE_INFO))
+                }).map(new MapFunction<User, Row>() {
+            @Override
+            public Row map(User value) throws Exception {
+                return Row.of(value.getName(), value.getPass(), value.getAge(), value.getGrade());
+            }
+        }).returns(new RowTypeInfo(BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.STRING_TYPE_INFO, BasicTypeInfo.INT_TYPE_INFO, BasicTypeInfo.INT_TYPE_INFO))
                 .output(JDBCOutputFormat.buildJDBCOutputFormat()
                         .setDrivername("com.mysql.jdbc.Driver")
                         .setDBUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=PRC")

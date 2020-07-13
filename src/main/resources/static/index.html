@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                console.log("[------- submit ----- start ]")
+                $.ajax({
+                    //几个参数需要注意一下
+                    type: "POST",//方法类型
+                    dataType: "json",//预期服务器返回的数据类型
+                    url: "/users/login",//url
+                    data: $('#form1').serialize(),
+                    success: function (result) {
+                        console.log("submit data : " + result);//打印服务端返回的数据(调试用)
+                        if (result.resultCode == 200) {
+                            alert("SUCCESS");
+                        }
+                        ;
+                    },
+                    error: function () {
+                        alert("异常！");
+                    }
+                });
+            })
+            $("#asynUpload").click(function () {
+                console.log("--------asynUpload------- ")
+                var formData = new FormData($("#form-add")[0]);
+                $.ajax({
+                    url: "/asyn/submit/",
+                    type: "POST",
+                    data: formData,
+                    async: true,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        console.log("asynUpload data : " + data)
+                        alert("uploadFile is success !!!")
+                    },
+                    error: function (data) {
+                        console.log("failed : " + data)
+                    }
+                });
+            })
+
+        })
+        function submitFunction() {
+            var formData = new FormData($("#form-ad")[0]);
+            $.ajax({
+                url: "/asyn/upload/",
+                type: "POST",
+                data: formData,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log("data : " + data)
+                    alert("uploadFile is success !!!")
+                },
+                error: function (data) {
+                    console.log("failed : " + data)
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<h2>Syn文件上传示例</h2>
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/syn/upload">
+        <p>
+            文件1：<input type="file" name="file"/>
+            <input type="submit" value="Syn上传"/>
+        </p>
+    </form>
+</div>
+<!--asyn submit form which includes key-val and file-->
+<div>
+    <h3>Asyn文件上传示例一</h3>
+    <form id="form-add">
+        <input type="text" name="name">
+        <input type="file" name="file"/>
+        <button type="button" id="asynUpload">提交</button>
+    </form>
+</div>
+<div>
+    <h3>Asyn文件上传示例二</h3>
+    <form id="form-ad">
+        <input type="file" name="file"/>
+        <button type="button" onclick="submitFunction()">提交</button>
+    </form>
+</div>
+</body>
+</html>

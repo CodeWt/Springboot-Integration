@@ -25,22 +25,14 @@ public class Test01 {
             //age+=1
             tuple3.f2 += 1;
             return tuple3;
-        }).filter(new FilterFunction<Tuple3<String, String, Integer>>() {
-            @Override
-            public boolean filter(Tuple3<String, String, Integer> tuple3) throws Exception {
-                if ((Integer)tuple3.getField(2) > 19){
-                    return true;
-                }
-                return false;
+        }).filter((FilterFunction<Tuple3<String, String, Integer>>) tuple3 -> {
+            if ((Integer)tuple3.getField(2) > 19){
+                return true;
             }
+            return false;
         });
         //输出处理后的数据集
         result.writeAsCsv("./user.csv");
         env.execute();
-    }
-
-    @Test
-    public void test02(){
-        com.example.demo.controller.Test.dis();
     }
 }
