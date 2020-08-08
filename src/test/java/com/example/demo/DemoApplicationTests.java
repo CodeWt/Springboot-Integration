@@ -18,7 +18,7 @@ class DemoApplicationTests {
 
     @Autowired
     private JdbcTemplate template;
-//    @Test
+//    @TestTwo
 //    public void test() {
 //        System.out.println(properties.getUrl());
 //        properties.setUrl("sbsb...");

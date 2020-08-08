@@ -5,7 +5,7 @@
 //import org.apache.commons.dbcp2.BasicDataSource;
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.jdbc.core.JdbcTemplate;
-//import org.testng.annotations.Test;
+//import org.testng.annotations.TestTwo;
 //
 //import javax.annotation.Resource;
 //import javax.sql.DataSource;
@@ -18,7 +18,7 @@
 //    @Resource
 //    private DataSource dataSourceSec;
 //
-//    @Test
+//    @TestTwo
 //    public void test01() throws SQLException {
 //        //一、实例化BasicDataSource
 //        BasicDataSource bs = new BasicDataSource();
@@ -47,7 +47,7 @@
 //        bs.close();
 //    }
 //
-//    @Test
+//    @TestTwo
 //    public void test02() throws SQLException {
 //        System.out.println(dataSourceSec);
 //        System.out.println(dataSourceSec.getConnection().getMetaData().getURL());
