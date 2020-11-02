@@ -1,4 +1,4 @@
-package com.example.demo.mediator.one;
+package com.example.demo.model.mediator.one;
 
 /**
  *  抽象同事类

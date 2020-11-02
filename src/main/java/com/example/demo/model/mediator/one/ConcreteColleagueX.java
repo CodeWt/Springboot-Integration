@@ -1,4 +1,4 @@
-package com.example.demo.mediator.one;
+package com.example.demo.model.mediator.one;
 
 /**
  *  具体同事类,每个具体同事只知道自己的行为，而不了解其它同事类的情况，但他们都认识中介者对象。

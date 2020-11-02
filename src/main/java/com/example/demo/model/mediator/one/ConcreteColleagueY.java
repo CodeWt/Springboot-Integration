@@ -1,4 +1,4 @@
-package com.example.demo.mediator.one;
+package com.example.demo.model.mediator.one;
 
 public class ConcreteColleagueY extends Colleague {
     public ConcreteColleagueY(Mediator mediator) {

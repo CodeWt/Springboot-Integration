@@ -1,4 +1,4 @@
-package com.example.demo.mediator.one;
+package com.example.demo.model.mediator.one;
 
 /**
  *  具体中介者对象，实现抽象类的方法，他需要知道所有具体同事类，并从具体同事接收消息，项具体同事对象发送命令。

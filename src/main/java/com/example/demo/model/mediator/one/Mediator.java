@@ -1,4 +1,4 @@
-package com.example.demo.mediator.one;
+package com.example.demo.model.mediator.one;
 
 /**
  *  抽象中介者，定义了同事对象到中介者对象的接口
