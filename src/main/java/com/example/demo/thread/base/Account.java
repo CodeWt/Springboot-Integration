@@ -27,7 +27,9 @@ public class Account {
 
     public static void main(String[] args) {
         Account account = new Account();
-        new Thread(() -> account.setBalance("wt",100),"t1").start();
+        new Thread(() -> {
+            account.setBalance("wt", 100);
+        },"t1").start();
         new Thread(account::getBalance,"t2").start();
     }
 }

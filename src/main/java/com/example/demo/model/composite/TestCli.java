@@ -1,4 +1,4 @@
-package com.example.demo.composite;
+package com.example.demo.model.composite;
 
 public class TestCli {
     public static void main(String[] args) {

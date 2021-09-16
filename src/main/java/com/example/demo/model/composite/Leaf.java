@@ -1,4 +1,4 @@
-package com.example.demo.composite;
+package com.example.demo.model.composite;
 
 /**
  *  在组合中表示叶节点对象，叶节点没有子节点
