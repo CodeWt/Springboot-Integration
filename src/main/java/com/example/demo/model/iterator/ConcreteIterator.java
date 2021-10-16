@@ -1,4 +1,4 @@
-package com.example.demo.iterator;
+package com.example.demo.model.iterator;
 
 /**
  *  具体的迭代器类，实现迭代器抽象类声明的方法

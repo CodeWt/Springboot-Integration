@@ -1,4 +1,4 @@
-package com.example.demo.iterator;
+package com.example.demo.model.iterator;
 
 /**
  *  聚集抽象类

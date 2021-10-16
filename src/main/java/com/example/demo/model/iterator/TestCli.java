@@ -1,4 +1,4 @@
-package com.example.demo.iterator;
+package com.example.demo.model.iterator;
 
 public class TestCli {
     public static void main(String[] args) {
