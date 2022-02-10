@@ -46,6 +46,7 @@ class LogProxy implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //proxy 为反射生成的代理类对象本身，method为被代理的接口方法，args为方法需要传参
+        System.out.println(proxy.getClass().getName());
         System.out.println("start --> " + method.getName());
         Object o = method.invoke(movable, args);
         System.out.println("end --> " + method.getName());

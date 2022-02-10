@@ -21,8 +21,10 @@ class TimeProxy implements MethodInterceptor {
 
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println(o.getClass().getName());
         System.out.println(o.getClass().getSuperclass().getName() + "---" + method.getName());
         long start = System.currentTimeMillis();
+        System.out.println(methodProxy.getClass().getName());
         Object o1 = methodProxy.invokeSuper(o, objects);
 //        Object o1 = method.invoke(new Tank(),objects);
         System.out.println("共用时 ： " + (System.currentTimeMillis() - start));
